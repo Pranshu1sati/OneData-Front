@@ -1,6 +1,10 @@
+import DepartmentContainer from "../components/DashboardComponents/DepartmentContainer"
+
 const Dashboard = () => {
   return (
-    <div className="mt-28">Dashboard</div>
+    <article className=" p-5 w-full">
+      <DepartmentContainer/>
+    </article>
   )
 }
 export default Dashboard
