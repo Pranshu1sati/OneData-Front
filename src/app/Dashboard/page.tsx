@@ -1,3 +1,5 @@
+import AddDepartmentContainer from "../components/DashboardComponents/AddDepartmentContainer"
+import AddTeacherContainer from "../components/DashboardComponents/AddTeacherContainer"
 import DepartmentContainer from "../components/DashboardComponents/DepartmentContainer"
 import {PiStudentFill, PiChalkboardTeacherBold} from 'react-icons/Pi'
 import { CgProfile } from "react-icons/cg";

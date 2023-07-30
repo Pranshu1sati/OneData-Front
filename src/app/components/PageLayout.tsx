@@ -13,10 +13,10 @@ const PageLayout = ({ children }: any) => {
         <section className='hidden col-span-1 md:flex h-full  w-full md:flex-col'>
           <SideMenu/>
         </section>
-        <main className='col-span-5 flex flex-col px-10' >
+        <main className='col-span-4 flex flex-col px-10' >
           {children}
         </main>
-      {/* </div> */}
+      </div>
       <Footer />
     </>
   )
