@@ -15,7 +15,7 @@ const header = () => {
       ];
     const [open, setIsOpen] = useState(false);
   return (
-    <div className='absolute shadow-md w-full fixed top-0 left-0'>
+    <div className='absolute shadow-md w-full  top-0 left-0 z-40'>
            <div className='md:flex items-center justify-between bg-white py-0 md:px-10 px-7'>
             {/* logo section */}
             <div className='font-bold text-2xl cursor-pointer flex items-center'>
