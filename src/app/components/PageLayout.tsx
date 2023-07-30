@@ -16,7 +16,7 @@ const PageLayout = ({ children }: any) => {
         <main className='col-span-4 flex flex-col px-10' >
           {children}
         </main>
-      </div>
+      
       <Footer />
     </>
   )
