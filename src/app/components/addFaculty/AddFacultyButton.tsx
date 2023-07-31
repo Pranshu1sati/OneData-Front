@@ -18,7 +18,7 @@ export default function AddFacultyButton() {
 
   return (
     <div>
-      <button onClick={handleModalOpen}>Open Modal</button>
+      <button onClick={handleModalOpen}>Add Teacher</button>
       <ReactModal
         isOpen={modalOpen}
         onRequestClose={handleModalClose}

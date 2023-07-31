@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 // Import the Department type
@@ -11,7 +12,7 @@ interface Department {
 // Use the Department type in the React.FC type annotation
 const DepartmentList: React.FC<{ department: Department }> = ({ department }) => {
   return (
-    <div className='grid grid-cols-6 my-2 text-black font-bold text-lg'>
+    <Link href={`/Dashboard/department/${department._id}`} className='grid grid-cols-6 my-2 text-black font-bold text-lg'>
       {/* Use the data from the department prop to populate the component */}
       <h3 className='col-span-2'>{department.name}</h3>
       <h3 className='text-center'>{department.hod?department.hod : <button>Set</button>}</h3>
@@ -19,7 +20,7 @@ const DepartmentList: React.FC<{ department: Department }> = ({ department }) =>
       <h3 className='text-center'>50</h3>
       <h3 className='text-center'>250</h3>
       <h3 className='text-center'>2000</h3>
-    </div>
+    </Link>
   );
 };
 

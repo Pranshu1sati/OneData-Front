@@ -19,7 +19,7 @@ export default function AddDepartmentButton() {
 
   return (
     <div>
-      <button onClick={handleModalOpen}>Open Modal</button>
+      <button onClick={handleModalOpen}>Add Department</button>
       <ReactModal
         isOpen={modalOpen}
         onRequestClose={handleModalClose}
