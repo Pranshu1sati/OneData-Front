@@ -9,14 +9,16 @@ export default function AddDepartment() {
     const initialValues: FormValues = {
         name: ''
       };
-      const handleSubmit = async(values: FormValues) => {
+      const handleSubmit = async (values: FormValues, { resetForm }: { resetForm: () => void }) => {
         // Send the form data to the backend API
         await axios.post(`${api}/department/register`, values)
           .then((response:any) => {
             // Handle the API response if needed
             console.log(response);
-            alert('Form data submitted successfully!');
+            // alert('Form data submitted successfully!');
+            resetForm();
           })
+
           .catch((error:any) => {
 
             // Handle errors if necessary
