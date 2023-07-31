@@ -19,7 +19,7 @@ export default function AddStudentsButton() {
 
   return (
     <div>
-      <button onClick={handleModalOpen}>Open Modal</button>
+      <button onClick={handleModalOpen}>Add Student</button>
       <ReactModal
         isOpen={modalOpen}
         onRequestClose={handleModalClose}

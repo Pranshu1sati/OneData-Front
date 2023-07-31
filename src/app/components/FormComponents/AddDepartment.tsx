@@ -1,23 +1,37 @@
+import axios from 'axios';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 interface FormValues {
-    department: string;
-    hodId: string;
+    name: string;
   }
 export default function AddDepartment() {
+  const api=process.env.NEXT_PUBLIC_API;
     const initialValues: FormValues = {
-        department: '',
-        hodId: '',
+        name: ''
       };
-    
+      const handleSubmit = async (values: FormValues, { resetForm }: { resetForm: () => void }) => {
+        // Send the form data to the backend API
+        await axios.post(`${api}/department/register`, values)
+          .then((response:any) => {
+            // Handle the API response if needed
+            console.log(response);
+            // alert('Form data submitted successfully!');
+            resetForm();
+          })
+
+          .catch((error:any) => {
+
+            // Handle errors if necessary
+            console.error('Error submitting form:', error);
+            alert('An error occurred while submitting the form.');
+          });
+      };
+
       const validationSchema = Yup.object({
-        department: Yup.string().required('Department Name is required'),
-        hodId: Yup.string().required('HOD ID is required'),
+        name: Yup.string().required('Department Name is required'),
+        // hodId: Yup.string().required('HOD ID is required'),
       });
     
-      const handleSubmit = (values: FormValues) => {
-        alert(JSON.stringify(values, null, 2));
-      };
     
   return (
     <Formik
@@ -29,24 +43,24 @@ export default function AddDepartment() {
       <Form className="px-4 rounded mx-auto max-w-3xl w-full my-8 Fields space-y-4 mt-8">
         <div>
           <h1 className="text-4xl font-bold">Add Departments</h1>
-          <p className="text-gray-600">This will create a new department</p>
+          <p className="text-gray-600">This will create a new Department</p>
         </div>
 
        
           <>
             <div>
-              <label htmlFor="department">Department Name</label>
+              <label htmlFor="name">Department Name</label>
               <Field
                 className="border text-black border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
                 type="text"
-                name="department"
+                name="name"
                 placeholder="Department of Computer Science"
-                id="department"
+                id="name"
               />
-              <ErrorMessage name="department" component="div" />
+              <ErrorMessage name="name" component="div" />
             </div>
 
-            <div>
+            {/* <div>
               <label htmlFor="hodId">HOD ID</label>
               <Field
                 className="border text-black border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
@@ -56,10 +70,10 @@ export default function AddDepartment() {
                 id="hodId"
               />
               <ErrorMessage name="hodId" component="div" />
-            </div>
+            </div> */}
           </>
        
-          <button type="submit" className='bg-green-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover: bg-green-500 transition duration-2oo ease-in-out'>Submit</button>
+          <button type="submit" className='bg-green-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover:bg-green-500 transition duration-2oo ease-in-out'>Submit</button>
       </Form>
     </div>
   </Formik>

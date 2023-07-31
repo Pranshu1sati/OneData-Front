@@ -15,7 +15,7 @@ const header = () => {
       ];
     const [open, setIsOpen] = useState(false);
   return (
-    <div className='sticky shadow-md w-full fixed top-0'>
+    <div className='sticky shadow-md w-full  top-0'>
            <div className='md:flex items-center justify-between bg-white py-0 md:px-10 px-7'>
             {/* logo section */}
             <div className='font-bold text-2xl cursor-pointer flex items-center'>
@@ -32,7 +32,7 @@ const header = () => {
             {!isPublic &&<ul className={`md:flex md:items-center md:pb-0 pb-0 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20' : 'top-[-490px]'}`}>
                 {
                     Links.map((link) => (
-                    <li className='md:ml-8 md:my-0 my-7 font-semibold'>
+                    <li key={link.link} className='md:ml-8 md:my-0 my-7 font-semibold'>
                         <Link href={link.link} className='text-gray-800 hover:text-blue-400 duration-500' onClick={()=>setIsOpen(!open)}>{link.name}</Link>
                     </li>))
                 }
