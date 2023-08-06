@@ -196,10 +196,10 @@ export default function AddFaculty() {
      
       
       <div className="flex space-x-4"> 
-      <button onClick={prevStep} className='bg-blue-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover: bg-blue-500 transition duration-2oo ease-in-out'>Back</button> 
-      {(currentStep!=3) ?(<button onClick={nextStep} className='bg-blue-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover: bg-blue-500 transition duration-2oo ease-in-out'>Next</button>) :
+      <button onClick={prevStep} className='bg-blue-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover:bg-blue-500 transition duration-2oo ease-in-out'>Back</button> 
+      {(currentStep!=3) ?(<button onClick={nextStep} className='bg-blue-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover:bg-blue-500 transition duration-2oo ease-in-out'>Next</button>) :
       
-      (<button type="submit" className='bg-green-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover: bg-green-500 transition duration-2oo ease-in-out'>Submit</button>)}
+      (<button type="submit" className='bg-green-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover:bg-green-500 transition duration-2oo ease-in-out'>Submit</button>)}
       </div> 
     </Form>
     </div>

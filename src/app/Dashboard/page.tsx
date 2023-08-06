@@ -46,12 +46,12 @@ const Dashboard: React.FC<DashboardProps> = async() => {
   // console.log(departments);
   console.log(apiEnd);
   const {departments}=await getDepartment();
-  const data=departments.department;
-  // console.log(departments,"data found");
+  // const data=departments;
+  console.log(departments,"data found");
   // const [loading,setLoading]=useState<Boolean>(true);
   return (
     <article className="mt-16 p-5 w-full">
-      <DepartmentContainer departments={data} />
+      <DepartmentContainer departments={departments} />
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <div className="button bg-blue-500 text-white p-4 rounded-lg flex items-center">
           <PiChalkboardTeacherBold className="text-2xl mr-2" />

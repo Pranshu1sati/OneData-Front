@@ -1,4 +1,7 @@
+"use client"
 import React from 'react';
+import ChangeHodButton from '../changeHod/ChangeHodButton';
+
 interface Department {
     _id: string;
     name: string;
@@ -26,11 +29,13 @@ const DepTeachersContainer: React.FC<DepartmentContainerProps> = ({ teachers, de
                 <div>
                     <h1 className='font-extrabold text-3xl'>{department.name}</h1>
                     <h2 className='font-semibold text-[#83c5be]'>{teachers.length} teachers</h2>
-                    <div className='grid grid-cols-2'>
+                    <div className='grid grid-cols-3'>
                         <h3 className='font-bold text-[#83c5be]'>Hod Name</h3>
                         <h3 className='font-bold text-[#83c5be]'>Hod contact</h3>
+                        <ChangeHodButton _id={department._id}/>
                     </div>
                 </div>
+
                 <div className='flex ml-auto'>
                     <div className='font-extrabold flex flex-col items-center mx-4 text-xl'>
                         <div>40</div>
@@ -46,8 +51,8 @@ const DepTeachersContainer: React.FC<DepartmentContainerProps> = ({ teachers, de
                 <hr />
                 <div id='department-header' className='grid grid-cols-6 my-2 text-[#83c5be] font-semibold text-lg'>
                     <h3 className='col-span-2'>Name</h3>
-                    <h3 className='text-center'>H.O.D</h3>
-                    <h3 className='text-center'>Teachers</h3>
+                    <h3 className='text-center'>Joining Date</h3>
+                    <h3 className='text-center'>Designation</h3>
                     <h3 className='text-center'>Papers</h3>
                     <h3 className='text-center'>Placed</h3>
                 </div>
