@@ -1,7 +1,5 @@
 import DepTeachersContainer from '@/app/components/DepartmentComponents/DepTeachersContainer';
-import AddFacultyButton from '@/app/components/addFaculty/AddFacultyButton';
 import React from 'react'
-import { PiChalkboardTeacherBold } from 'react-icons/Pi';
 
 const getDepartment = async (departId: string) => {
     try {

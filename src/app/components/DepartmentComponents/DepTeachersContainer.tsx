@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import ChangeHodButton from '../changeHod/ChangeHodButton';
+import Link from 'next/link';
 
 interface Department {
     _id: string;
@@ -29,10 +30,11 @@ const DepTeachersContainer: React.FC<DepartmentContainerProps> = ({ teachers, de
                 <div>
                     <h1 className='font-extrabold text-3xl'>{department.name}</h1>
                     <h2 className='font-semibold text-[#83c5be]'>{teachers.length} teachers</h2>
-                    <div className='grid grid-cols-3'>
+                    <div className='grid grid-cols-4'>
                         <h3 className='font-bold text-[#83c5be]'>Hod Name</h3>
                         <h3 className='font-bold text-[#83c5be]'>Hod contact</h3>
                         <ChangeHodButton _id={department._id}/>
+                        <Link href={`events/${department._id}`} className=''>Events</Link>
                     </div>
                 </div>
 
