@@ -1,4 +1,5 @@
 import EventCard from '@/app/components/DashboardComponents/EventCard';
+import AddEventButton from '@/app/components/FormModals/addEvent/AddEventButton';
 import React from 'react'
 const getDepartment = async (departId: string) => {
     try {
@@ -40,7 +41,7 @@ export default async function page({ params }: any) {
                     <div className='grid grid-cols-3'>
                         <h3 className='font-bold text-[#83c5be]'>Hod Name</h3>
                         <h3 className='font-bold text-[#83c5be]'>Hod contact</h3>
-                        <button>Add Event</button>
+                        <AddEventButton/>
                     </div>
                 </div>
 
@@ -74,6 +75,7 @@ export default async function page({ params }: any) {
                             No Department events yet...
                         </div>
                     } */}
+                    {/* temporary */}
                     <section className='grid grid-cols-4 w-full gap-3 mt-5'>
                         <EventCard />
                         <EventCard />

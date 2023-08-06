@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import React from 'react'
 interface Event {
-    _id: string,
-    name: string,
-    date: Date,
-    images: [string],
-    department: string,
-    attendence: string,
-    notableGuests: [string],
-}
+    _id: string;
+    name: string;
+    date: Date;
+    images: string[];
+    department: string;
+    attendence: string;
+    notableGuests: string[];
+  }
 interface EventProps {
     event: Event,
 }
