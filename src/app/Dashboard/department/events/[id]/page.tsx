@@ -37,9 +37,10 @@ export default async function page({ params }: any) {
                 <div>
                     <h1 className='font-extrabold text-3xl'>{department.name}</h1>
                     <h2 className='font-semibold text-[#83c5be]'>{events.length > 0 ? events.length : "0"} events</h2>
-                    <div className='grid grid-cols-4'>
+                    <div className='grid grid-cols-3'>
                         <h3 className='font-bold text-[#83c5be]'>Hod Name</h3>
                         <h3 className='font-bold text-[#83c5be]'>Hod contact</h3>
+                        <button>Add Event</button>
                     </div>
                 </div>
 

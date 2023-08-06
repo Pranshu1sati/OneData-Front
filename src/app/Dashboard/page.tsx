@@ -2,9 +2,9 @@ import React from "react";
 import { PiStudentFill, PiChalkboardTeacherBold } from "react-icons/Pi";
 import { CgProfile } from "react-icons/cg";
 import { BsFillBuildingFill } from "react-icons/Bs";
-import AddFacultyButton from "../components/addFaculty/AddFacultyButton";
-import AddDepartmentButton from "../components/addDepartment/AddDepartmentButton";
-import AddStudentsButton from "../components/addStudents/AddStudentsButton";
+import AddFacultyButton from "../components/FormModals/addFaculty/AddFacultyButton";
+import AddDepartmentButton from "../components/FormModals/addDepartment/AddDepartmentButton";
+import AddStudentsButton from "../components/FormModals/addStudents/AddStudentsButton";
 
 import axios from "axios";
 import DepartmentContainer from "../components/DashboardComponents/DepartmentContainer";

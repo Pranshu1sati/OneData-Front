@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import ChangeHodButton from '../changeHod/ChangeHodButton';
+import ChangeHodButton from '../FormModals/changeHod/ChangeHodButton';
 import Link from 'next/link';
 
 interface Department {
