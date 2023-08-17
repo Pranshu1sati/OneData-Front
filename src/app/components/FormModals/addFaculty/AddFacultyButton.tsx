@@ -1,10 +1,9 @@
 "use client";
 import ReactModal from "react-modal";
 import { useState } from "react";
+import AddFaculty from "../FormComponents/AddFaculty";
 
-import AddStudents from "../../components/FormComponents/AddStudents";
-
-export default function AddStudentsButton() {
+export default function AddFacultyButton() {
   // ... Your existing code ...
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,7 +18,7 @@ export default function AddStudentsButton() {
 
   return (
     <div>
-      <button onClick={handleModalOpen}>Add Student</button>
+      <button onClick={handleModalOpen}>Add Teacher</button>
       <ReactModal
         isOpen={modalOpen}
         onRequestClose={handleModalClose}
@@ -37,8 +36,7 @@ export default function AddStudentsButton() {
             borderRadius: "8px",
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
             maxWidth: "600px",
-            minWidth : "418px",
-            minHeight:"488px"
+            minWidth : "418px"
           },
           overlay: {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -47,8 +45,8 @@ export default function AddStudentsButton() {
         }}
         ariaHideApp={false} // This is to avoid an accessibility warning
         
-      ><div className="my-auto min-h-[488px]">
-        <AddStudents/>
+      ><div className="my-auto">
+        <AddFaculty/>
         </div>
       </ReactModal>
     </div>

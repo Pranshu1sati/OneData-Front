@@ -7,40 +7,35 @@ interface FormValues {
   firstName: string;
   lastName: string;
   address : string;
-  studentId : string;
-  Education: string[];
-  dateofenrollment : Date;
-  dateofGraduation : Date;
-  course : string;
-  semester : string;
-  email : string;
+  qualifications: string[];
+  date : Date;
+  email : string,
+  password : string,
+  department : string,
+  empId : string,
 }
 
-export default function AddStudents() {
+export default function AddFaculty() {
   const initialValues: FormValues = {
     firstName: '',
     lastName: '',
     address : "",
-    studentId :"",
-    Education: [],
-    dateofenrollment : new Date(),
-    dateofGraduation : new Date(),
-    course : "",
-    semester : '',
-    email : "",
+
+    qualifications: [],
+    date : new Date(),
+    email : '',
+    password : '',
+    department : '',
+    empId : ""
   };
   const validationSchema = Yup.object({
     firstName: Yup.string().required('First Name is required'),
     lastName: Yup.string().required('Last Name is required'),
     address : Yup.string().required("This is required Information"),
-    
-    studentId : Yup.string().required("This is Required"),
-    email : Yup.string().email("Enter Valid Email").required("This is Required"),
-
-    Education: Yup.array().of(Yup.string().required("This is required Info")),
-    course: Yup.string().required("Enter Current Course"),
-    semester : Yup.string().required("Enter Current Course"),
-    
+    qualifications: Yup.array().of(Yup.string().required("This is required Info")),
+    email : Yup.string().email("Enter Valid Email").required("This is required Information"),
+    password : Yup.string().min(5,'Password should be at least 5 characters long').required("This is required info"),
+    empId : Yup.string().required("This is required ")
   });
 
   const handleSubmit = (values: FormValues) => {
@@ -66,20 +61,18 @@ export default function AddStudents() {
     initialValues={initialValues}
     validationSchema={validationSchema}
     onSubmit={handleSubmit}
-    
-    >
-    <div>
-    <Form className="px-4 rounded mx-auto max-w-3xl w-full my-8 Fields space-y-4 mt-8 ">
+    ><div>
+    <Form className="px-4 rounded mx-auto max-w-3xl w-full my-8 Fields space-y-4 mt-8">
       <div>
-        <h1 className="text-4xl font-bold">Add Students</h1>
+        <h1 className="text-4xl font-bold">Add Accounts</h1>
         <p className="text-gray-600">
           Step {currentStep}
         </p>
       </div>
+      {currentStep === 1 &&
+      (<>
       
-      { (currentStep===1)&&
-      ( <> 
-      <div >
+        <div >
           <label htmlFor="firstName">First Name</label>
           <Field
             className="border text-black border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
@@ -118,116 +111,98 @@ export default function AddStudents() {
       </div>
       </>
       )}
-      { (currentStep===2)&&(<>
+      { (currentStep==2)&&
+      (<>
       <div>
-        <label htmlFor="address">Email Id</label>
+        <label htmlFor="email">Email</label>
         <Field
           className="border text-black border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
           type="email"
           name="email"
-          placeholder="@gmail.com"
+          placeholder="221B Baker Street"
           id="email"
         />
         <p className="text-sm text-gray-600">
-          We will use this primary email for communications
+          We will use this as primary email for communication
         </p>
         <ErrorMessage name="email" component="div" />
       </div>
       <div>
-        <label htmlFor="address">Student Id</label>
+        <label htmlFor="password">Password</label>
         <Field
           className="border text-black border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
-          type="text"
-          name="studentId"
-          placeholder="007"
-          id="studentId"
+          type="password"
+          name="password"
+          placeholder="221B Baker Street"
+          id="password"
         />
-        <p className="text-sm text-gray-600">
-         The same as your ID Card
-        </p>
-        <ErrorMessage name="studentId" component="div" />
+        <ErrorMessage name="password" component="div" />
       </div>
-      
-      <div className="paragraph overflow-y-auto px-4 py-2 border-2 border-slate-500" style={{ maxHeight: '250px', maxWidth:"407px" }}>
-      <FieldArray name="Education">
-          {({ push, remove } : any) => (
-            <ArrayInput name="Education" placeholder="Tripel MA in ITUS"/>
-          )}
-        </FieldArray>
-        <p className="text-sm text-gray-600">
-          Enter Prior Academic Qualifications 
-        </p>
+      <div>
+        <label htmlFor="password">Confirm Pssword</label>
+        <Field
+          className="border text-black border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
+          type="password"
+          name="password"
+          placeholder="221B Baker Street"
+          id="password"
+        />
+        <ErrorMessage name="password" component="div" />
       </div>
       </>
       )}
+        {(currentStep==3) &&(<>
+          <div>
+        <label htmlFor="empId">Emp Id</label>
+        <Field
+          className="border text-black border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
+          type="text"
+          name="empId"
+          placeholder="007"
+          id="empId"
+        />
+        <p className="text-sm text-gray-600">
+          We will use this as primary email for communication
+        </p>
+        <ErrorMessage name="empId" component="div" />
+      </div>
+      <div className="paragraph overflow-y-auto px-4 py-2 border-2 border-slate-500" style={{ maxHeight: '250px', maxWidth:"407px" }}>
+      <FieldArray name="qualifications" >
+          {({ push, remove } : any) => (
+            <ArrayInput name="qualifications" placeholder="Tripel MA in ITUS"/>
+          )}
+        </FieldArray>
+        <p className="text-sm text-gray-600">
+          Enter the academic qualifications 
+        </p>
+      </div>
+      <div>
+        <label htmlFor="date">Date of Joining</label>
+        <div className="flex w-1/2">
+          <Field
+            min="0"
+            step="0.01"
+            placeholder="0.00"
+            className="border text-black border-gray-400 px-4 py-2 rounded-r w-full focus:outline-none focus:border-teal-400"
+            type="date"
+            name="date"
+            id="date"
+          />
+        </div>
+      </div>
+      </>)
+      }
 
-    {(currentStep===3)
-    &&(  <>
-      <div className="flex space-x-4">
-      <div className="w-1/2" >
-        <label htmlFor="date">Date of Enrollment</label>
-        <div >
-          <Field
-            min="0"
-            step="0.01"
-            placeholder="0.00"
-            className="border text-black border-gray-400 px-4 py-2 rounded-r w-full focus:outline-none focus:border-teal-400"
-            type="date"
-            name="dateofenrollment"
-            id="dateofenrollment"
-          />
-        </div>
-      </div>
-      <div className="w-1/2">
-        <label htmlFor="dateofGraduation">Date of Graduation</label>
-        <div >
-          <Field
-            min="0"
-            step="0.01"
-            placeholder="0.00"
-            className="border text-black border-gray-400 px-4 py-2 rounded-r w-full focus:outline-none focus:border-teal-400"
-            type="date"
-            name="dateofGraduation"
-            id="dateofGraduation"
-          />
-        </div>
-      </div>
-      </div>
-   
-    <div>
-        <label htmlFor="address">Current Course</label>
-        <Field
-          className="border text-black border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
-          type="text"
-          name="course"
-          placeholder="ITUS"
-          id="course"
-        />
-        <ErrorMessage name="course" component="div" />
-    </div>
-    <div>
-    
-        <label htmlFor="address">Current Semester</label>
-        <Field
-          className="border text-black border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
-          type="text"
-          name="semester"
-          placeholder="12th"
-          id="semester"
-        />
-        <ErrorMessage name="semester" component="div" />
-    </div>
-    </>
-    )}
-      <div className="flex space-x-4"> 
-      <button onClick={prevStep} className='bg-blue-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover: bg-blue-500 transition duration-2oo ease-in-out'>Back</button> 
-      {(currentStep!=3) ?(<button onClick={nextStep} className='bg-blue-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover: bg-blue-500 transition duration-2oo ease-in-out'>Next</button>) :
+     
       
-      (<button type="submit" className='bg-green-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover: bg-green-500 transition duration-2oo ease-in-out'>Submit</button>)}
+      <div className="flex space-x-4"> 
+      <button onClick={prevStep} className='bg-blue-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover:bg-blue-500 transition duration-2oo ease-in-out'>Back</button> 
+      {(currentStep!=3) ?(<button onClick={nextStep} className='bg-blue-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover:bg-blue-500 transition duration-2oo ease-in-out'>Next</button>) :
+      
+      (<button type="submit" className='bg-green-900 text-white uppercase py-2 px-4 rounded font-bold cursor-pointer border-2 border-slate-300 hover:bg-green-500 transition duration-2oo ease-in-out'>Submit</button>)}
       </div> 
     </Form>
     </div>
-</Formik>
-    
+    </Formik>
   )
 }

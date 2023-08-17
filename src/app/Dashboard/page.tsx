@@ -2,9 +2,9 @@ import React from "react";
 import { PiStudentFill, PiChalkboardTeacherBold } from "react-icons/Pi";
 import { CgProfile } from "react-icons/cg";
 import { BsFillBuildingFill } from "react-icons/Bs";
-import AddFacultyButton from "../components/addFaculty/AddFacultyButton";
-import AddDepartmentButton from "../components/addDepartment/AddDepartmentButton";
-import AddStudentsButton from "../components/addStudents/AddStudentsButton";
+import AddFacultyButton from "../components/FormModals/addFaculty/AddFacultyButton";
+import AddDepartmentButton from "../components/FormModals/addDepartment/AddDepartmentButton";
+import AddStudentsButton from "../components/FormModals/addStudents/AddStudentsButton";
 
 import axios from "axios";
 import DepartmentContainer from "../components/DashboardComponents/DepartmentContainer";
@@ -46,12 +46,12 @@ const Dashboard: React.FC<DashboardProps> = async() => {
   // console.log(departments);
   console.log(apiEnd);
   const {departments}=await getDepartment();
-  const data=departments.department;
-  // console.log(departments,"data found");
+  // const data=departments;
+  console.log(departments,"data found");
   // const [loading,setLoading]=useState<Boolean>(true);
   return (
     <article className="mt-16 p-5 w-full">
-      <DepartmentContainer departments={data} />
+      <DepartmentContainer departments={departments} />
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <div className="button bg-blue-500 text-white p-4 rounded-lg flex items-center">
           <PiChalkboardTeacherBold className="text-2xl mr-2" />
