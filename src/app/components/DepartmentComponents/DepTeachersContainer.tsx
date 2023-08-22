@@ -2,6 +2,7 @@ import React from 'react';
 interface Department {
     _id: string;
     name: string;
+    HOD : any;
 }
 interface Teacher {
     _id: string;
@@ -26,8 +27,17 @@ const DepTeachersContainer: React.FC<DepartmentContainerProps> = ({ teachers, de
                 <div>
                     <h1 className='font-extrabold text-3xl'>{department.name}</h1>
                     <h2 className='font-semibold text-[#83c5be]'>{teachers.length} teachers</h2>
+<<<<<<< Updated upstream
                     <div className='grid grid-cols-2'>
                         <h3 className='font-bold text-[#83c5be]'>Hod Name</h3>
+=======
+                    <div className='grid grid-cols-4'>
+                    {department.HOD? (
+              <h3 className='font-bold text-[#83c5be]'>{department.HOD.name}</h3>
+            ) : (
+              <p className='text-black'>No HOD assigned</p>
+            )}
+>>>>>>> Stashed changes
                         <h3 className='font-bold text-[#83c5be]'>Hod contact</h3>
                     </div>
                 </div>
@@ -55,8 +65,16 @@ const DepTeachersContainer: React.FC<DepartmentContainerProps> = ({ teachers, de
                 {teachers.map((teacher) => (
                     <React.Fragment key={teacher._id}>
                         {/* <DepartmentList teacher={teacher}/> */}
-                        <div>Teacher list</div>
-                        <hr />
+                        <div className='grid grid-cols-6 my-2 text-black font-bold text-lg'>       
+                        <Link href={`/Teachers/profile/${teacher._id}`} className="col-span-2" >
+                                <h3 className='col-span-2'>{teacher.name}</h3>
+                                </Link>
+      
+                        <h3 className='text-center'>12/12/12</h3>
+                        <h3 className='text-center'>Associate Proff.</h3>
+                        <h3 className='text-center'>2000</h3>
+                        <h3 className='text-center'>Yes</h3>
+                        </div>
                     </React.Fragment>
                 ))}
             </section>

@@ -26,7 +26,7 @@ import { CgProfile } from "react-icons/cg";
 function SideNavbar() {
   return (
     <div>
-      <Disclosure>
+      <Disclosure  >
         {({ open }) => (
           <>
             <Disclosure.Button
